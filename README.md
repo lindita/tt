@@ -1,5 +1,5 @@
 # tt
-go study framework,go 学习框架
+go framework, go自用api框架,集成gin,gormgo-redis,wire等
 
 
 ### 启动server
