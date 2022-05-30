@@ -6,12 +6,12 @@
 package server
 
 import (
-	"test.com/tt/api/app/v1"
-	"test.com/tt/internal/conf"
-	"test.com/tt/internal/data"
-	"test.com/tt/internal/data/daos"
-	"test.com/tt/internal/data/db"
-	"test.com/tt/internal/services"
+	"tt.com/tt/api/app/v1"
+	"tt.com/tt/internal/conf"
+	"tt.com/tt/internal/data"
+	"tt.com/tt/internal/data/daos"
+	"tt.com/tt/internal/data/db"
+	"tt.com/tt/internal/services"
 )
 
 // Injectors from wire.go:

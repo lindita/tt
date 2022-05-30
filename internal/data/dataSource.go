@@ -4,7 +4,7 @@ import (
 	"context"
 	"github.com/go-redis/redis/v8"
 	"gorm.io/gorm"
-	"test.com/tt/internal/conf"
+	"tt.com/tt/internal/conf"
 )
 
 type DataSource struct {

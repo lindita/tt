@@ -1,7 +1,7 @@
 package main
 
 import (
-	"test.com/tt/cmd/server"
+	"tt.com/tt/cmd/server"
 )
 
 func main() {

@@ -3,9 +3,9 @@ package daos
 import (
 	"context"
 	"fmt"
-	"test.com/tt/internal/data"
-	"test.com/tt/internal/data/model"
-	"test.com/tt/internal/logger"
+	"tt.com/tt/internal/data"
+	"tt.com/tt/internal/data/model"
+	"tt.com/tt/internal/logger"
 	"time"
 )
 

@@ -3,7 +3,7 @@ package services
 import (
 	"context"
 	"github.com/spf13/cast"
-	"test.com/tt/internal/data/daos"
+	"tt.com/tt/internal/data/daos"
 )
 
 type TtService struct {

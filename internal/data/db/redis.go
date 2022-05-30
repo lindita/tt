@@ -3,8 +3,8 @@ package db
 import (
 	"context"
 	"github.com/go-redis/redis/v8"
-	"test.com/tt/internal/conf"
-	"test.com/tt/internal/logger"
+	"tt.com/tt/internal/conf"
+	"tt.com/tt/internal/logger"
 	"time"
 )
 

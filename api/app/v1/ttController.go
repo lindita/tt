@@ -2,7 +2,7 @@ package v1
 
 import (
 	"github.com/gin-gonic/gin"
-	"test.com/tt/internal/services"
+	"tt.com/tt/internal/services"
 )
 
 type TtController struct {

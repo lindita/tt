@@ -9,9 +9,9 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
-	"test.com/tt/api/app"
-	"test.com/tt/internal/conf"
-	"test.com/tt/internal/logger"
+	"tt.com/tt/api/app"
+	"tt.com/tt/internal/conf"
+	"tt.com/tt/internal/logger"
 	"time"
 )
 

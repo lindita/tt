@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
-	"test.com/tt/internal/conf"
-	"test.com/tt/internal/logger"
+	"tt.com/tt/internal/conf"
+	"tt.com/tt/internal/logger"
 )
 
 func NewDb(config *conf.Config) *gorm.DB {

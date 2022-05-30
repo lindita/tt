@@ -2,7 +2,7 @@ package app
 
 import (
 	"github.com/gin-gonic/gin"
-	appV1 "test.com/tt/api/app/v1"
+	appV1 "tt.com/tt/api/app/v1"
 )
 
 

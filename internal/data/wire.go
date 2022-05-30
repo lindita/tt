@@ -2,7 +2,7 @@ package data
 
 import (
 	"github.com/google/wire"
-	"test.com/tt/internal/data/db"
+	"tt.com/tt/internal/data/db"
 )
 
 var ProviderSet = wire.NewSet(
