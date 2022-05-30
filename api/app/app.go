@@ -6,14 +6,6 @@ import (
 )
 
 type App struct {
-	H5 *AppH5
-	V1 *AppV1
-}
-
-type AppV1 struct {
-	Tt *v1.TtController
-}
-
-type AppH5 struct {
-	Tt *h5.TtController
+	H5 *h5.H5
+	V1 *v1.V1
 }

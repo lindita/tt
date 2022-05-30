@@ -7,6 +7,8 @@ import (
 	"github.com/google/wire"
 	"tt.com/tt/api"
 	"tt.com/tt/api/app"
+	"tt.com/tt/api/app/h5"
+	v1 "tt.com/tt/api/app/v1"
 	"tt.com/tt/internal/conf"
 	"tt.com/tt/internal/data"
 	"tt.com/tt/internal/data/daos"
@@ -23,8 +25,8 @@ func NewApi(config *conf.Config) (*api.Api, func(), error) {
 		//增加目录需要在这加上
 		v1.ProviderSet,
 		h5.ProviderSet,
-		wire.Struct(new(app.AppV1), "*"),
-		wire.Struct(new(app.AppH5), "*"),
+		wire.Struct(new(v1.V1), "*"),
+		wire.Struct(new(h5.H5), "*"),
 		wire.Struct(new(app.App), "*"),
 		wire.Struct(new(api.Api), "*"),
 	))
