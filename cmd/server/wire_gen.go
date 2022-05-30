@@ -6,6 +6,8 @@
 package server
 
 import (
+	"tt.com/tt/api"
+	"tt.com/tt/api/app"
 	"tt.com/tt/api/app/v1"
 	"tt.com/tt/internal/conf"
 	"tt.com/tt/internal/data"
@@ -16,7 +18,8 @@ import (
 
 // Injectors from wire.go:
 
-func newController(config *conf.Config) (*v1.Controller, func(), error) {
+func NewApi(config *conf.Config) (*api.Api, func(), error) {
+	appH5 := &app.AppH5{}
 	gormDB := db.NewDb(config)
 	client, err := db.NewRedis(config)
 	if err != nil {
@@ -32,9 +35,16 @@ func newController(config *conf.Config) (*v1.Controller, func(), error) {
 		Tt: ttService,
 	}
 	ttController := v1.NewTtController(service)
-	controller := &v1.Controller{
+	appV1 := &app.AppV1{
 		Tt: ttController,
 	}
-	return controller, func() {
+	appApp := &app.App{
+		H5: appH5,
+		V1: appV1,
+	}
+	apiApi := &api.Api{
+		App: appApp,
+	}
+	return apiApi, func() {
 	}, nil
 }

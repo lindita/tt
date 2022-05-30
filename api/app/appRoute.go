@@ -1,12 +1,9 @@
 package app
 
-import (
-	"github.com/gin-gonic/gin"
-	appV1 "tt.com/tt/api/app/v1"
-)
+import "github.com/gin-gonic/gin"
 
 //app路由
-func InitRoute(r *gin.RouterGroup, c *appV1.Controller) {
+func InitRoute(r *gin.RouterGroup, c *AppV1) {
 	loginRouter := r.Group("/tt")
 	loginRouter.GET("", c.Tt.Index)
 }
