@@ -16,7 +16,7 @@ var rootCmd = &cobra.Command{
 }
 
 func Execute()  {
-	//初始化配置文件和日志
+	//init config&log
 	cobra.OnInitialize(func() {
 		conf.InitConfig()
 		logger.NewZapLog()
