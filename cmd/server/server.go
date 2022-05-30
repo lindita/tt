@@ -9,10 +9,10 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
-	"tt.com/tt/api/app"
+	"time"
+	"tt.com/tt/api"
 	"tt.com/tt/internal/conf"
 	"tt.com/tt/internal/logger"
-	"time"
 )
 
 func Run() {
@@ -36,7 +36,7 @@ func Run() {
 	}
 	r.Use(gin.CustomRecoveryWithWriter(writer, handleRecovery))
 	ct, _, _ := newController(config)
-	app.InitRoute(r.Group("/app/v1"), ct)
+	api.InitRoute(r, ct)
 	r.GET("/recovery", func(_ *gin.Context) {
 		panic("this is a panic")
 	})
