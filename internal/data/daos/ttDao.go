@@ -3,10 +3,10 @@ package daos
 import (
 	"context"
 	"fmt"
+	"time"
 	"tt.com/tt/internal/data"
 	"tt.com/tt/internal/data/model"
 	"tt.com/tt/internal/logger"
-	"time"
 )
 
 type TtDao struct {
@@ -20,10 +20,10 @@ func NewTtDao(dataSource *data.DataSource) *TtDao {
 }
 
 func (d *TtDao) GetTtData(ctx context.Context) model.TtModel {
-	d.dataSource.DefaultRedis.Set(context.TODO(), "aaa", "o12222222", 10000 * time.Second).Val()
-	value, _ := d.dataSource.DefaultRedis.Get(context.TODO(), "aaa").Result()
+	d.dataSource.DefaultRedis.Set(ctx, "tt", "testtt", 10000 * time.Second).Val()
+	value, _ := d.dataSource.DefaultRedis.Get(ctx, "testtt").Result()
 	fmt.Println(value)
-	logger.GetLogger().Named("xxx").Error("xxxxxffffffffffff")
+	logger.GetLogger().Named("xxx").Error("error")
 	var xx model.TtModel
 	d.dataSource.DefautltDB.First(&xx, "id = ?", 5)
 	fmt.Printf("%+v", xx)
