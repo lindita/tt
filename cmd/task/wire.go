@@ -8,16 +8,16 @@ import (
 	"tt.com/tt/internal/conf"
 	"tt.com/tt/internal/data"
 	"tt.com/tt/internal/data/daos"
-	"tt.com/tt/internal/services"
+	"tt.com/tt/internal/service"
 )
 
-func newService(config *conf.Config) (*services.Service, func(), error) {
+func newService(config *conf.Config) (*service.Service, func(), error) {
 	panic(wire.Build(
 		data.ProviderSet,
 		daos.ProviderSet,
 		wire.Struct(new(daos.Dao), "*"),
-		services.ProviderSet,
-		wire.Struct(new(services.Service), "*"),
+		service.ProviderSet,
+		wire.Struct(new(service.Service), "*"),
 	))
 }
 

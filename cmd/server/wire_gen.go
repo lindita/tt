@@ -14,7 +14,7 @@ import (
 	"tt.com/tt/internal/data"
 	"tt.com/tt/internal/data/daos"
 	"tt.com/tt/internal/data/db"
-	"tt.com/tt/internal/services"
+	"tt.com/tt/internal/service"
 )
 
 // Injectors from wire.go:
@@ -30,15 +30,15 @@ func NewApi(config *conf.Config) (*api.Api, func(), error) {
 	dao := &daos.Dao{
 		Tt: ttDao,
 	}
-	ttService := services.NewTtService(dao)
-	service := &services.Service{
+	ttService := service.NewTtService(dao)
+	serviceService := &service.Service{
 		Tt: ttService,
 	}
-	ttController := h5.NewTtController(service)
+	ttController := h5.NewTtController(serviceService)
 	h5H5 := &h5.H5{
 		Tt: ttController,
 	}
-	v1TtController := v1.NewTtController(service)
+	v1TtController := v1.NewTtController(serviceService)
 	v1V1 := &v1.V1{
 		Tt: v1TtController,
 	}

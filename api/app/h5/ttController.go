@@ -2,14 +2,14 @@ package h5
 
 import (
 	"github.com/gin-gonic/gin"
-	"tt.com/tt/internal/services"
+	"tt.com/tt/internal/service"
 )
 
 type TtController struct {
-	service *services.Service
+	service *service.Service
 }
 
-func NewTtController(s *services.Service) *TtController {
+func NewTtController(s *service.Service) *TtController {
 	return  &TtController{
 		service : s,
 	}

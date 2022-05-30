@@ -10,12 +10,12 @@ import (
 	"tt.com/tt/internal/data"
 	"tt.com/tt/internal/data/daos"
 	"tt.com/tt/internal/data/db"
-	"tt.com/tt/internal/services"
+	"tt.com/tt/internal/service"
 )
 
 // Injectors from wire.go:
 
-func newService(config *conf.Config) (*services.Service, func(), error) {
+func newService(config *conf.Config) (*service.Service, func(), error) {
 	gormDB := db.NewDb(config)
 	client, err := db.NewRedis(config)
 	if err != nil {
@@ -26,10 +26,10 @@ func newService(config *conf.Config) (*services.Service, func(), error) {
 	dao := &daos.Dao{
 		Tt: ttDao,
 	}
-	ttService := services.NewTtService(dao)
-	service := &services.Service{
+	ttService := service.NewTtService(dao)
+	serviceService := &service.Service{
 		Tt: ttService,
 	}
-	return service, func() {
+	return serviceService, func() {
 	}, nil
 }
