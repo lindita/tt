@@ -3,6 +3,7 @@ package server
 import (
 	"context"
 	"github.com/gin-gonic/gin"
+	"github.com/spf13/cobra"
 	"gopkg.in/natefinch/lumberjack.v2"
 	"log"
 	"net/http"
@@ -12,12 +13,18 @@ import (
 	"time"
 	"tt.com/tt/api"
 	"tt.com/tt/internal/conf"
-	"tt.com/tt/internal/logger"
 )
 
+
+var ServerCmd = &cobra.Command{
+	Use:   "server",
+	Short: "s",
+	Run: func(cmd *cobra.Command, args []string) {
+		Run()
+	},
+}
+
 func Run() {
-	conf.InitConfig()
-	logger.NewZapLog()
 	config := conf.GetConfig()
 	gin.SetMode(gin.DebugMode)
 	r := gin.New()
