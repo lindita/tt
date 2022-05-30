@@ -18,5 +18,5 @@ func NewTtService(dao *daos.Dao) *TtService {
 
 func (s *TtService) GetTt(ctx context.Context) string  {
 	r := s.dao.Tt.GetTtData(ctx)
-	return "tt"+cast.ToString(r.Id)
+	return "tt" + cast.ToString(r.Id) + cast.ToString(r.Name)
 }
