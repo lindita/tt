@@ -1,4 +1,4 @@
-module test.com/tt
+module tt.com/tt
 
 go 1.16
 
