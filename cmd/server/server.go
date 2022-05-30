@@ -44,17 +44,6 @@ func Run() {
 	r.Use(gin.CustomRecoveryWithWriter(writer, handleRecovery))
 	ct, _, _ := newController(config)
 	api.InitRoute(r, ct)
-	r.GET("/recovery", func(_ *gin.Context) {
-		panic("this is a panic")
-	})
-
-	r.GET("/ping", func(c *gin.Context) {
-		//输出json结果给调用方
-		c.JSON(200, gin.H{
-			"message": "pong",
-		})
-	})
-
 	//https://colobu.com/2016/07/01/the-complete-guide-to-golang-net-http-timeouts/
 	httpServer := &http.Server{
 		Addr:    config.HTTPServerAddr,
