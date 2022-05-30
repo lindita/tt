@@ -1,6 +1,9 @@
 package app
 
-import v1 "tt.com/tt/api/app/v1"
+import (
+	"tt.com/tt/api/app/h5"
+	v1 "tt.com/tt/api/app/v1"
+)
 
 type App struct {
 	H5 *AppH5
@@ -12,5 +15,5 @@ type AppV1 struct {
 }
 
 type AppH5 struct {
-
+	Tt *h5.TtController
 }

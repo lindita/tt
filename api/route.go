@@ -13,5 +13,6 @@ func InitRoute(r *gin.Engine, c *Api) {
 			"message": "hi!",
 		})
 	})
-	app.InitRoute(r.Group("/app/v1"), c.App.V1)
+
+	app.InitRoute(r.Group("/app"), c.App)
 }
