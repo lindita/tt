@@ -1,4 +1,4 @@
 .idea/
-logs/
-bin/
+.logs/
+.bin/
 cert/
