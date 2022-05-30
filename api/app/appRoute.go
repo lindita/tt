@@ -2,7 +2,7 @@ package app
 
 import "github.com/gin-gonic/gin"
 
-//app路由
+//app路由 可以拆分放到各目录下
 func InitRoute(r *gin.RouterGroup, c *App) {
 
 	v1 := c.V1
