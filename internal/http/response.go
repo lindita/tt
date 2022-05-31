@@ -3,6 +3,7 @@ package http
 import (
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"tt.com/tt/internal/constant"
 )
 
 type ApiResponse struct {
@@ -38,7 +39,7 @@ func (r *Response) Data(data interface{}) *Response {
 }
 
 func (r *Response) Error(msg string) *Response {
-	r.ApiResponse.ErrorCode = 1
+	r.ApiResponse.ErrorCode = constant.CodeError
 	r.ApiResponse.Msg = msg
 	return r
 }
