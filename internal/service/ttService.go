@@ -2,17 +2,17 @@ package service
 
 import (
 	"context"
-	"tt.com/tt/internal/data/daos"
+	"tt.com/tt/internal/data/dao"
 	"tt.com/tt/internal/data/model"
 	"tt.com/tt/internal/exception"
 	"tt.com/tt/internal/logger"
 )
 
 type TtService struct {
-	dao *daos.Dao
+	dao *dao.Dao
 }
 
-func NewTtService(dao *daos.Dao) *TtService {
+func NewTtService(dao *dao.Dao) *TtService {
 	return  &TtService{
 		dao: dao,
 	}

@@ -12,7 +12,7 @@ import (
 	"tt.com/tt/api/h5"
 	"tt.com/tt/internal/conf"
 	"tt.com/tt/internal/data"
-	"tt.com/tt/internal/data/daos"
+	"tt.com/tt/internal/data/dao"
 	"tt.com/tt/internal/data/db"
 	"tt.com/tt/internal/service"
 )
@@ -26,11 +26,11 @@ func NewApi(config *conf.Config) (*api.Api, func(), error) {
 		return nil, nil, err
 	}
 	dataSource := data.NewDataSource(config, gormDB, client)
-	ttDao := daos.NewTtDao(dataSource)
-	dao := &daos.Dao{
+	ttDao := dao.NewTtDao(dataSource)
+	daoDao := &dao.Dao{
 		Tt: ttDao,
 	}
-	ttService := service.NewTtService(dao)
+	ttService := service.NewTtService(daoDao)
 	serviceService := &service.Service{
 		Tt: ttService,
 	}

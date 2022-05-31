@@ -1,4 +1,4 @@
-package daos
+package dao
 
 import "github.com/google/wire"
 
