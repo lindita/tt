@@ -35,5 +35,5 @@ func (s *TtService) TestMysql(ctx context.Context) model.TtModel  {
 
 func (s *TtService) TestPanic(ctx context.Context) {
 	panic(exception.NewException(1, "error msg"))
-	panic("like system panic")
+	//panic("like system panic")
 }
