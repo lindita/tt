@@ -11,6 +11,7 @@ func InitRoute(r *gin.RouterGroup, c *App) {
 	v1 := c.V1
 	v1Route := r.Group("/v1")
 	v1LoginRoute := r.Group("/v1").Use(midware.AppLogin())
+
 	v1Route.GET("tt", v1.Tt.Index)
 	v1Route.GET("tt.testPanic", v1.Tt.TestPanic)
 	v1Route.GET("tt.testRedis", v1.Tt.TestRedis)
