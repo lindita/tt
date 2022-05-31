@@ -10,7 +10,7 @@ type Exception struct {
 	Msg       string `json:"msg"`
 }
 
-func NewApiException(errorCode int, msg string) string {
+func NewException(errorCode int, msg string) string {
 	e := Exception{ErrorCode: errorCode, Msg: msg}
 	data, err := json.Marshal(e)
 	if err != nil {
