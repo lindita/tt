@@ -16,8 +16,4 @@ func InitRoute(r *gin.RouterGroup, c *App) {
 	v1Route.GET("tt.testRedis", v1.Tt.TestRedis)
 	v1Route.GET("tt.testMysql", v1.Tt.TestMysql)
 	v1LoginRoute.GET("tt.testLogin", v1.Tt.TestLogin)
-
-	h5 := c.H5
-	h5Route := r.Group("/h5")
-	h5Route.GET("tt", h5.Tt.Index)
 }

@@ -8,8 +8,8 @@ package server
 import (
 	"tt.com/tt/api"
 	"tt.com/tt/api/app"
-	"tt.com/tt/api/app/h5"
 	"tt.com/tt/api/app/v1"
+	"tt.com/tt/api/h5"
 	"tt.com/tt/internal/conf"
 	"tt.com/tt/internal/data"
 	"tt.com/tt/internal/data/daos"
@@ -34,20 +34,20 @@ func NewApi(config *conf.Config) (*api.Api, func(), error) {
 	serviceService := &service.Service{
 		Tt: ttService,
 	}
-	ttController := h5.NewTtController(serviceService)
-	h5H5 := &h5.H5{
+	ttController := v1.NewTtController(serviceService)
+	v1V1 := &v1.V1{
 		Tt: ttController,
 	}
-	v1TtController := v1.NewTtController(serviceService)
-	v1V1 := &v1.V1{
-		Tt: v1TtController,
-	}
 	appApp := &app.App{
-		H5: h5H5,
 		V1: v1V1,
+	}
+	h5TtController := h5.NewTtController(serviceService)
+	h5H5 := &h5.H5{
+		Tt: h5TtController,
 	}
 	apiApi := &api.Api{
 		App: appApp,
+		H5:  h5H5,
 	}
 	return apiApi, func() {
 	}, nil

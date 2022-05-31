@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"tt.com/tt/api/app"
+	"tt.com/tt/api/h5"
 	http1 "tt.com/tt/internal/http"
 )
 
@@ -17,4 +18,5 @@ func InitRoute(r *gin.Engine, c *Api) {
 		return
 	})
 	app.InitRoute(r.Group("/app"), c.App)
+	h5.InitRoute(r.Group("/h5"), c.H5)
 }
