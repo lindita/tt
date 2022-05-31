@@ -3,7 +3,9 @@ package midware
 import (
 	"encoding/json"
 	"github.com/gin-gonic/gin"
+	"net/http"
 	"tt.com/tt/internal/exception"
+	http1 "tt.com/tt/internal/http"
 )
 
 //前置于handleRecovery，只拦截ErrorCode>0的panic,errCode=0会被当成当成系统异常抛出
@@ -19,9 +21,9 @@ func HandleException() gin.HandlerFunc {
 				if exception.ErrorCode == 0 {
 					panic(err.(string))
 				}
-				c.JSON(200, gin.H{
-					"errorCode": exception.ErrorCode,
-					"msg": exception.Msg,
+				c.JSON(http.StatusOK, http1.ApiResponse{
+					ErrorCode: exception.ErrorCode,
+					Msg:       exception.Msg,
 				})
 				c.Abort()
 			}
@@ -29,4 +31,3 @@ func HandleException() gin.HandlerFunc {
 		c.Next()
 	}
 }
-

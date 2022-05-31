@@ -2,6 +2,8 @@ package h5
 
 import (
 	"github.com/gin-gonic/gin"
+	"net/http"
+	http1 "tt.com/tt/internal/http"
 	"tt.com/tt/internal/service"
 )
 
@@ -16,7 +18,7 @@ func NewTtController(s *service.Service) *TtController {
 }
 
 func (c *TtController) Index(g *gin.Context) {
-	g.JSON(200, gin.H{
-		"message": "h5 api!",
+	g.PureJSON(http.StatusOK, http1.ApiResponse{
+		Msg: "h5 api!",
 	})
 }

@@ -13,6 +13,7 @@ import (
 	"time"
 	"tt.com/tt/api"
 	"tt.com/tt/internal/conf"
+	http1 "tt.com/tt/internal/http"
 	"tt.com/tt/internal/midware"
 )
 
@@ -22,9 +23,9 @@ func Run() {
 	r := gin.New()
 	r.Use(gin.Logger())
 	handleRecovery := func(c *gin.Context, err interface{}) {
-		c.PureJSON(200, gin.H{
-			"errorCode": 1,
-			"msg": "system error: " + err.(string),
+		c.JSON(http.StatusOK, http1.ApiResponse{
+			ErrorCode: 1,
+			Msg:       "system error: " + err.(string),
 		})
 	}
 	writer := &lumberjack.Logger{
@@ -38,7 +39,7 @@ func Run() {
 	r.Use(midware.HandleException())
 	ttApi, _, _ := NewApi(conf.GetConfig())
 	api.InitRoute(r, ttApi)
-	fmt.Println("http://127.0.0.1"+config.HTTPServerAddr)
+	fmt.Println("http://127.0.0.1" + config.HTTPServerAddr)
 	//https://colobu.com/2016/07/01/the-complete-guide-to-golang-net-http-timeouts/
 	httpServer := &http.Server{
 		Addr:    config.HTTPServerAddr,

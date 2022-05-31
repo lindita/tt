@@ -2,6 +2,8 @@ package v1
 
 import (
 	"github.com/gin-gonic/gin"
+	"net/http"
+	http1 "tt.com/tt/internal/http"
 	"tt.com/tt/internal/service"
 )
 
@@ -17,28 +19,28 @@ func NewTtController(s *service.Service) *TtController {
 
 func (c *TtController) Index(g *gin.Context) {
 	str := c.service.Tt.GetTt(g)
-	g.JSON(200, gin.H{
-		"message": str,
+	g.PureJSON(http.StatusOK, http1.ApiResponse{
+		Msg: str,
 	})
 }
 
 func (c *TtController) TestRedis(g *gin.Context) {
 	str := c.service.Tt.TestRedis(g)
-	g.JSON(200, gin.H{
-		"message": str,
+	g.PureJSON(http.StatusOK, http1.ApiResponse{
+		Msg: str,
 	})
 }
 
 func (c *TtController) TestMysql(g *gin.Context) {
 	str := c.service.Tt.TestMysql(g)
-	g.JSON(200, gin.H{
-		"message": str,
+	g.PureJSON(http.StatusOK, http1.ApiResponse{
+		Msg: str,
 	})
 }
 
 func (c *TtController) TestPanic(g *gin.Context) {
 	str := c.service.Tt.TestPanic(g)
-	g.JSON(200, gin.H{
-		"message": str,
+	g.PureJSON(http.StatusOK, http1.ApiResponse{
+		Msg: str,
 	})
 }
