@@ -11,7 +11,7 @@ import (
 //总路由
 func InitRoute(r *gin.Engine, c *Api) {
 	r.NoRoute(func(c *gin.Context) {
-		http1.NewResponse().HttpCode(http.StatusNotFound).ErrorWithCode( http.StatusNotFound, "not found").Return(c)
+		http1.NewResponse().HttpCode(http.StatusNotFound).ErrorWithCode( http.StatusNotFound, "not found!").Return(c)
 	})
 	r.GET("/", func(c *gin.Context) {
 		http1.NewResponse().Success("hi!").Return(c)
