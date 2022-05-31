@@ -16,6 +16,6 @@ func InitRoute(r *gin.Engine, c *Api) {
 	r.GET("/", func(c *gin.Context) {
 		http1.NewResponse().Success("hi!").Return(c)
 	})
-	app.InitRoute(r.Group("/app"), c.App)
-	h5.InitRoute(r.Group("/h5"), c.H5)
+	app.InitRoute(r, c.App)
+	h5.InitRoute(r, c.H5)
 }

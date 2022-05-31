@@ -5,7 +5,7 @@ import (
 )
 
 type V1 struct {
-	Tt *TtController
+	Tt *ttController
 }
 
 var ProviderSet = wire.NewSet(

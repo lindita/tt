@@ -6,37 +6,37 @@ import (
 	"tt.com/tt/internal/service"
 )
 
-type TtController struct {
+type ttController struct {
 	service *service.Service
 }
 
-func NewTtController(s *service.Service) *TtController {
-	return  &TtController{
+func NewTtController(s *service.Service) *ttController {
+	return  &ttController{
 		service : s,
 	}
 }
 
-func (t *TtController) Index(c *gin.Context) {
+func (t *ttController) index(c *gin.Context) {
 	str := t.service.Tt.GetTt(c)
 	http1.NewResponse().Success(str).Return(c)
 }
 
-func (t *TtController) TestLogin(c *gin.Context) {
+func (t *ttController) testLogin(c *gin.Context) {
 	str := t.service.Tt.GetTt(c)
 	http1.NewResponse().Success(str).Return(c)
 }
 
-func (t *TtController) TestRedis(c *gin.Context) {
+func (t *ttController) testRedis(c *gin.Context) {
 	data := t.service.Tt.TestRedis(c)
 	http1.NewResponse().Data(data).Return(c)
 }
 
-func (t *TtController) TestMysql(c *gin.Context) {
+func (t *ttController) testMysql(c *gin.Context) {
 	data := t.service.Tt.TestMysql(c)
 	http1.NewResponse().Data(data).Return(c)
 }
 
-func (t *TtController) TestPanic(c *gin.Context) {
+func (t *ttController) testPanic(c *gin.Context) {
 	t.service.Tt.TestPanic(c)
 	http1.NewResponse().Success("success").Return(c)
 }
