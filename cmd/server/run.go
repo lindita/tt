@@ -2,6 +2,7 @@ package server
 
 import (
 	"context"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"gopkg.in/natefinch/lumberjack.v2"
 	"log"
@@ -34,6 +35,7 @@ func Run() {
 	r.Use(gin.CustomRecoveryWithWriter(writer, handleRecovery))
 	ttApi, _, _ := NewApi(conf.GetConfig())
 	api.InitRoute(r, ttApi)
+	fmt.Println("http://127.0.0.1"+config.HTTPServerAddr)
 	//https://colobu.com/2016/07/01/the-complete-guide-to-golang-net-http-timeouts/
 	httpServer := &http.Server{
 		Addr:    config.HTTPServerAddr,
