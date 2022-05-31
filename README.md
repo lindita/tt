@@ -1,5 +1,5 @@
 # tt
-go framework, go自用api框架,集成gin,gorm,go-redis,wire等
+go自用api框架,集成gin,gorm,go-redis,wire等
 
 ## 结构
 server->controller->service->dao->[mysql,redis..]
