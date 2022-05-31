@@ -22,7 +22,7 @@ func Run() {
 	r := gin.New()
 	r.Use(gin.Logger())
 	handleRecovery := func(c *gin.Context, err interface{}) {
-		c.JSON(200, gin.H{
+		c.PureJSON(200, gin.H{
 			"errorCode": 1,
 			"msg": "system error: " + err.(string),
 		})
