@@ -16,27 +16,27 @@ func NewTtController(s *service.Service) *TtController {
 	}
 }
 
-func (c *TtController) Index(g *gin.Context) {
-	str := c.service.Tt.GetTt(g)
-	http1.NewResponse().Success(str).Return(g)
+func (t *TtController) Index(c *gin.Context) {
+	str := t.service.Tt.GetTt(c)
+	http1.NewResponse().Success(str).Return(c)
 }
 
-func (c *TtController) TestLogin(g *gin.Context) {
-	str := c.service.Tt.GetTt(g)
-	http1.NewResponse().Success(str).Return(g)
+func (t *TtController) TestLogin(c *gin.Context) {
+	str := t.service.Tt.GetTt(c)
+	http1.NewResponse().Success(str).Return(c)
 }
 
-func (c *TtController) TestRedis(g *gin.Context) {
-	data := c.service.Tt.TestRedis(g)
-	http1.NewResponse().Data(data).Return(g)
+func (t *TtController) TestRedis(c *gin.Context) {
+	data := t.service.Tt.TestRedis(c)
+	http1.NewResponse().Data(data).Return(c)
 }
 
-func (c *TtController) TestMysql(g *gin.Context) {
-	data := c.service.Tt.TestMysql(g)
-	http1.NewResponse().Data(data).Return(g)
+func (t *TtController) TestMysql(c *gin.Context) {
+	data := t.service.Tt.TestMysql(c)
+	http1.NewResponse().Data(data).Return(c)
 }
 
-func (c *TtController) TestPanic(g *gin.Context) {
-	c.service.Tt.TestPanic(g)
-	http1.NewResponse().Success("success").Return(g)
+func (t *TtController) TestPanic(c *gin.Context) {
+	t.service.Tt.TestPanic(c)
+	http1.NewResponse().Success("success").Return(c)
 }
