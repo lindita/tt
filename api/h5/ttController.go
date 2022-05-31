@@ -6,16 +6,16 @@ import (
 	"tt.com/tt/internal/service"
 )
 
-type TtController struct {
+type ttController struct {
 	service *service.Service
 }
 
-func NewTtController(s *service.Service) *TtController {
-	return  &TtController{
+func NewTtController(s *service.Service) *ttController {
+	return  &ttController{
 		service : s,
 	}
 }
 
-func (t *TtController) Index(c *gin.Context) {
+func (t *ttController) index(c *gin.Context) {
 	http1.NewResponse().Success("h5 api!").Return(c)
 }

@@ -5,7 +5,7 @@ import (
 )
 
 type H5 struct {
-	Tt *TtController
+	Tt *ttController
 }
 
 var ProviderSet = wire.NewSet(

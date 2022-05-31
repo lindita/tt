@@ -6,5 +6,5 @@ import (
 
 //app路由 可以拆分放到各目录下
 func InitRoute(r *gin.RouterGroup, c *H5) {
-	r.GET("tt", c.Tt.Index)
+	r.GET("tt", c.Tt.index)
 }
