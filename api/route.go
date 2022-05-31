@@ -10,16 +10,11 @@ import (
 //总路由
 func InitRoute(r *gin.Engine, c *Api) {
 	r.NoRoute(func(c *gin.Context) {
-		c.PureJSON(http.StatusNotFound, http1.ApiResponse{
-			ErrorCode : http.StatusNotFound,
-			Msg : "not found",
-		})
+		http1.NewResponse().HttpCode(http.StatusNotFound).ErrorWithCode( http.StatusNotFound, "not found").Return(c)
 	})
 	r.GET("/", func(c *gin.Context) {
-		//输出json结果给调用方
-		c.PureJSON(http.StatusOK, http1.ApiResponse{
-			Msg : "hi!",
-		})
+		http1.NewResponse().Success("hi!").Return(c)
+		return
 	})
 	app.InitRoute(r.Group("/app"), c.App)
 }

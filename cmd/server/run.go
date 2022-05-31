@@ -23,10 +23,7 @@ func Run() {
 	r := gin.New()
 	r.Use(gin.Logger())
 	handleRecovery := func(c *gin.Context, err interface{}) {
-		c.JSON(http.StatusOK, http1.ApiResponse{
-			ErrorCode: 1,
-			Msg:       "system error: " + err.(string),
-		})
+		http1.NewResponse().Error("system error: " + err.(string)).Return(c)
 	}
 	writer := &lumberjack.Logger{
 		Filename:   "./logs/error.log",

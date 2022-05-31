@@ -2,8 +2,8 @@ package service
 
 import (
 	"context"
-	"github.com/spf13/cast"
 	"tt.com/tt/internal/data/daos"
+	"tt.com/tt/internal/data/model"
 	"tt.com/tt/internal/exception"
 	"tt.com/tt/internal/logger"
 )
@@ -28,9 +28,9 @@ func (s *TtService) TestRedis(ctx context.Context) string  {
 	return"tt redis:" + r
 }
 
-func (s *TtService) TestMysql(ctx context.Context) string  {
+func (s *TtService) TestMysql(ctx context.Context) model.TtModel  {
 	r := s.dao.Tt.GetTtData(ctx)
-	return "tt mysql:" + cast.ToString(r.Id) + cast.ToString(r.Name)
+	return r
 }
 
 func (s *TtService) TestPanic(ctx context.Context) string  {

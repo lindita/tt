@@ -3,7 +3,6 @@ package midware
 import (
 	"encoding/json"
 	"github.com/gin-gonic/gin"
-	"net/http"
 	"tt.com/tt/internal/exception"
 	http1 "tt.com/tt/internal/http"
 )
@@ -21,10 +20,7 @@ func HandleException() gin.HandlerFunc {
 				if exception.ErrorCode == 0 {
 					panic(err.(string))
 				}
-				c.JSON(http.StatusOK, http1.ApiResponse{
-					ErrorCode: exception.ErrorCode,
-					Msg:       exception.Msg,
-				})
+				http1.NewResponse().ErrorWithCode(exception.ErrorCode, exception.Msg).Return(c)
 				c.Abort()
 			}
 		}()
