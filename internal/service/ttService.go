@@ -35,5 +35,6 @@ func (s *TtService) TestMysql(ctx context.Context) string  {
 
 func (s *TtService) TestPanic(ctx context.Context) string  {
 	panic(exception.NewApiException(4001, "error msg"))
+	panic("like system panic")
 	return "tt test panic"
 }

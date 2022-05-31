@@ -17,5 +17,4 @@ func NewApiException(errorCode int, msg string) string {
 		log.Panic(err)
 	}
 	return string(data)
-
 }
