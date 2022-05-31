@@ -5,6 +5,7 @@ import (
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"tt.com/tt/internal/conf"
+	"tt.com/tt/internal/constant"
 	"tt.com/tt/internal/logger"
 )
 
@@ -36,7 +37,7 @@ func NewDb(config *conf.Config) *gorm.DB {
 
 	sqlDB.SetMaxIdleConns(masterDSNConfig.ConnMin)
 	sqlDB.SetMaxOpenConns(masterDSNConfig.ConnMax)
-	if config.Runtime == "dev" {
+	if config.Env != constant.EnvProduct {
 		return db.Debug()
 	}
 	return db

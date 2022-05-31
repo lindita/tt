@@ -13,13 +13,18 @@ import (
 	"time"
 	"tt.com/tt/api"
 	"tt.com/tt/internal/conf"
+	"tt.com/tt/internal/constant"
 	http1 "tt.com/tt/internal/http"
 	"tt.com/tt/internal/http/midware"
 )
 
 func Run() {
 	config := conf.GetConfig()
-	gin.SetMode(gin.DebugMode)
+	if config.Env == constant.EnvProduct {
+		gin.SetMode(gin.ReleaseMode)
+	} else {
+		gin.SetMode(gin.DebugMode)
+	}
 	r := gin.New()
 	r.Use(gin.Logger())
 	handleRecovery := func(c *gin.Context, err interface{}) {

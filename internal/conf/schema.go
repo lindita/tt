@@ -6,7 +6,8 @@ import (
 )
 
 type Config struct {
-	Runtime        Runtime          `yaml:"runtime"`
+	//环境变量
+	Env            string           `yaml:"env"`
 	Database       DataBase         `yaml:"database"`
 	HTTPServerAddr string           `yaml:"http_server_addr" mapstructure:"http_server_addr"`
 	Redis          RedisConfig      `yaml:"redis"`
@@ -16,9 +17,6 @@ type Config struct {
 	Qiniu          Qiniu            `yaml:"qiniu"`
 	Xsj            Xsj              `yaml:"xsj_web" mapstructure:"xsj_web"`
 }
-
-// Runtime 运行环境变量
-type Runtime string
 
 // DataBase 数据库配置
 type DataBase struct {
