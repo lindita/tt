@@ -12,7 +12,7 @@ func ttCmd() *cobra.Command {
 		Run: func(cmd *cobra.Command, args []string) {
 			service, _, _ := newService(conf.GetConfig())
 			ret := service.Tt.GetTt(cmd.Context())
-			fmt.Println(ret)
+			fmt.Println("tt cmd run success with result:" + ret)
 		},
 	}
 	return cmd

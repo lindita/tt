@@ -4,6 +4,7 @@ import (
 	"context"
 	"github.com/spf13/cast"
 	"tt.com/tt/internal/data/daos"
+	"tt.com/tt/internal/logger"
 )
 
 type TtService struct {
@@ -17,6 +18,16 @@ func NewTtService(dao *daos.Dao) *TtService {
 }
 
 func (s *TtService) GetTt(ctx context.Context) string  {
+	logger.GetLogger().Named("tt").Info("tt info custom log!")
+	return "tt"
+}
+
+func (s *TtService) TestRedis(ctx context.Context) string  {
+	r := s.dao.Tt.GetTtRedis(ctx)
+	return"tt redis:" + r
+}
+
+func (s *TtService) TestMysql(ctx context.Context) string  {
 	r := s.dao.Tt.GetTtData(ctx)
-	return "tt" + cast.ToString(r.Id) + cast.ToString(r.Name)
+	return "tt mysql:" + cast.ToString(r.Id) + cast.ToString(r.Name)
 }

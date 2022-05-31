@@ -54,8 +54,9 @@ func NewZapLog() {
 	// 开启文档及行号
 	development := zap.Development()
 	// 设置初始化字段
-	filed := zap.Fields(zap.String("serviceName", "serviceName"))
+	//filed := zap.Fields(zap.String("serviceName", "serviceName"))
 	// 构造日志
-	logger := zap.New(core, caller, development, filed)
+	//logger := zap.New(core, caller, development, filed)
+	logger := zap.New(core, caller, development)
 	_logger = &Logger{logger.Sugar()}
 }

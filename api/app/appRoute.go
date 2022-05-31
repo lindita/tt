@@ -8,6 +8,8 @@ func InitRoute(r *gin.RouterGroup, c *App) {
 	v1 := c.V1
 	v1Route := r.Group("/v1")
 	v1Route.GET("tt", v1.Tt.Index)
+	v1Route.GET("tt.testRedis", v1.Tt.TestRedis)
+	v1Route.GET("tt.testMysql", v1.Tt.TestMysql)
 
 	h5 := c.H5
 	h5Route := r.Group("/h5")
