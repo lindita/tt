@@ -20,12 +20,12 @@ func NewTtService(dao *daos.Dao) *TtService {
 
 func (s *TtService) GetTt(ctx context.Context) string  {
 	logger.GetLogger().Named("tt").Info("tt info custom log!")
-	return "tt"
+	return "success"
 }
 
 func (s *TtService) TestRedis(ctx context.Context) string  {
 	r := s.dao.Tt.GetTtRedis(ctx)
-	return"tt redis:" + r
+	return r
 }
 
 func (s *TtService) TestMysql(ctx context.Context) model.TtModel  {
@@ -33,8 +33,7 @@ func (s *TtService) TestMysql(ctx context.Context) model.TtModel  {
 	return r
 }
 
-func (s *TtService) TestPanic(ctx context.Context) string  {
+func (s *TtService) TestPanic(ctx context.Context) {
 	panic(exception.NewException(1, "error msg"))
 	panic("like system panic")
-	return "tt test panic"
 }

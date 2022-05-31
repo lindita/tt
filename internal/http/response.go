@@ -17,7 +17,7 @@ type Response struct {
 	StatusCode  int         `json:"statusCode"`
 }
 
-func NewResponse() *Response  {
+func NewResponse() *Response {
 	return &Response{
 		StatusCode: http.StatusOK,
 	}
@@ -44,12 +44,16 @@ func (r *Response) Error(msg string) *Response {
 	return r
 }
 
-func (r *Response) ErrorWithCode(errorCode int,msg string) *Response {
+func (r *Response) ErrorWithCode(errorCode int, msg string) *Response {
 	r.ApiResponse.ErrorCode = errorCode
 	r.ApiResponse.Msg = msg
 	return r
 }
 
 func (r *Response) Return(c *gin.Context) {
-	c.PureJSON(r.StatusCode, r.ApiResponse)
+	c.Get("http.isResponse")
+	if  _, exist := c.Get("http.isResponse"); !exist {
+		c.PureJSON(r.StatusCode, r.ApiResponse)
+		c.Set("http.isResponse", 1)
+	}
 }

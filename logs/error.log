@@ -1,0 +1,434 @@
+
+
+[31m2022/05/31 17:07:38 [Recovery] 2022/05/31 - 17:07:38 panic recovered:
+GET /app/v1/tt.testMysql HTTP/1.1
+Host: 127.0.0.1:8080
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9
+Cache-Control: max-age=0
+Connection: keep-alive
+Cookie: PHPSESSID=v2usg4qj5oquhbuanqcka2cps5; Hm_lvt_0e36d85fc1d64c7d1c003fef46a37efd=1647487101,1649316720; Hm_lpvt_0e36d85fc1d64c7d1c003fef46a37efd=1649317184
+Sec-Ch-Ua: " Not A;Brand";v="99", "Chromium";v="101", "Google Chrome";v="101"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "macOS"
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: none
+Sec-Fetch-User: ?1
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36
+
+
+interface conversion: interface {} is *runtime.TypeAssertionError, not string
+/usr/local/go/src/runtime/iface.go:261 (0x100c5ae)
+	panicdottypeE: panic(&TypeAssertionError{iface, have, want, ""})
+/Users/admin/mnt/goroot/tt/internal/http/midware/handleException.go:16 (0x17a5998)
+	HandleException.func1.1: jsonErr := json.Unmarshal([]byte(string(err.(string))), &exception)
+/usr/local/go/src/runtime/panic.go:965 (0x10371b8)
+	gopanic: done = runOpenDeferFrame(gp, d)
+/usr/local/go/src/runtime/iface.go:91 (0x100bcab)
+	getitab: panic(&TypeAssertionError{concrete: typ, asserted: &inter.typ, missingMethod: m.init()})
+/usr/local/go/src/runtime/iface.go:461 (0x100cce4)
+	assertI2I: r.tab = getitab(inter, tab._type, false)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/response_writer.go:112 (0x159bac4)
+	(*responseWriter).CloseNotify: return w.ResponseWriter.(http.CloseNotifier).CloseNotify()
+/Users/admin/mnt/goroot/tt/internal/http/response.go:55 (0x15aa753)
+	(*Response).Return: c.Writer.CloseNotify()
+/Users/admin/mnt/goroot/tt/api/app/v1/ttController.go:31 (0x17a55d9)
+	(*TtController).TestMysql: http1.NewResponse().Data(data).Return(g)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x17a5a22)
+	(*Context).Next: c.handlers[c.index](c)
+/Users/admin/mnt/goroot/tt/internal/http/midware/handleException.go:27 (0x17a5a09)
+	HandleException.func1: c.Next()
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x15a4279)
+	(*Context).Next: c.handlers[c.index](c)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/recovery.go:99 (0x15a4260)
+	CustomRecoveryWithWriter.func1: c.Next()
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x15a3353)
+	(*Context).Next: c.handlers[c.index](c)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/logger.go:241 (0x15a3312)
+	LoggerWithConfig.func1: c.Next()
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x159934f)
+	(*Context).Next: c.handlers[c.index](c)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:555 (0x1599335)
+	(*Engine).handleHTTPRequest: c.Next()
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:511 (0x1598dea)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+/usr/local/go/src/net/http/server.go:3296 (0x1333dfe)
+	(*timeoutHandler).ServeHTTP.func1: h.handler.ServeHTTP(tw, r)
+/usr/local/go/src/runtime/asm_amd64.s:1371 (0x106e140)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2022/05/31 17:07:39 [Recovery] 2022/05/31 - 17:07:39 panic recovered:
+GET /app/v1/tt.testMysql HTTP/1.1
+Host: 127.0.0.1:8080
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9
+Cache-Control: max-age=0
+Connection: keep-alive
+Cookie: PHPSESSID=v2usg4qj5oquhbuanqcka2cps5; Hm_lvt_0e36d85fc1d64c7d1c003fef46a37efd=1647487101,1649316720; Hm_lpvt_0e36d85fc1d64c7d1c003fef46a37efd=1649317184
+Sec-Ch-Ua: " Not A;Brand";v="99", "Chromium";v="101", "Google Chrome";v="101"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "macOS"
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: none
+Sec-Fetch-User: ?1
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36
+
+
+interface conversion: interface {} is *runtime.TypeAssertionError, not string
+/usr/local/go/src/runtime/iface.go:261 (0x100c5ae)
+	panicdottypeE: panic(&TypeAssertionError{iface, have, want, ""})
+/Users/admin/mnt/goroot/tt/internal/http/midware/handleException.go:16 (0x17a5998)
+	HandleException.func1.1: jsonErr := json.Unmarshal([]byte(string(err.(string))), &exception)
+/usr/local/go/src/runtime/panic.go:965 (0x10371b8)
+	gopanic: done = runOpenDeferFrame(gp, d)
+/usr/local/go/src/runtime/iface.go:91 (0x100bcab)
+	getitab: panic(&TypeAssertionError{concrete: typ, asserted: &inter.typ, missingMethod: m.init()})
+/usr/local/go/src/runtime/iface.go:461 (0x100cce4)
+	assertI2I: r.tab = getitab(inter, tab._type, false)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/response_writer.go:112 (0x159bac4)
+	(*responseWriter).CloseNotify: return w.ResponseWriter.(http.CloseNotifier).CloseNotify()
+/Users/admin/mnt/goroot/tt/internal/http/response.go:55 (0x15aa753)
+	(*Response).Return: c.Writer.CloseNotify()
+/Users/admin/mnt/goroot/tt/api/app/v1/ttController.go:31 (0x17a55d9)
+	(*TtController).TestMysql: http1.NewResponse().Data(data).Return(g)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x17a5a22)
+	(*Context).Next: c.handlers[c.index](c)
+/Users/admin/mnt/goroot/tt/internal/http/midware/handleException.go:27 (0x17a5a09)
+	HandleException.func1: c.Next()
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x15a4279)
+	(*Context).Next: c.handlers[c.index](c)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/recovery.go:99 (0x15a4260)
+	CustomRecoveryWithWriter.func1: c.Next()
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x15a3353)
+	(*Context).Next: c.handlers[c.index](c)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/logger.go:241 (0x15a3312)
+	LoggerWithConfig.func1: c.Next()
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x159934f)
+	(*Context).Next: c.handlers[c.index](c)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:555 (0x1599335)
+	(*Engine).handleHTTPRequest: c.Next()
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:511 (0x1598dea)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+/usr/local/go/src/net/http/server.go:3296 (0x1333dfe)
+	(*timeoutHandler).ServeHTTP.func1: h.handler.ServeHTTP(tw, r)
+/usr/local/go/src/runtime/asm_amd64.s:1371 (0x106e140)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2022/05/31 17:07:39 [Recovery] 2022/05/31 - 17:07:39 panic recovered:
+GET /app/v1/tt.testMysql HTTP/1.1
+Host: 127.0.0.1:8080
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9
+Cache-Control: max-age=0
+Connection: keep-alive
+Cookie: PHPSESSID=v2usg4qj5oquhbuanqcka2cps5; Hm_lvt_0e36d85fc1d64c7d1c003fef46a37efd=1647487101,1649316720; Hm_lpvt_0e36d85fc1d64c7d1c003fef46a37efd=1649317184
+Sec-Ch-Ua: " Not A;Brand";v="99", "Chromium";v="101", "Google Chrome";v="101"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "macOS"
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: none
+Sec-Fetch-User: ?1
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36
+
+
+interface conversion: interface {} is *runtime.TypeAssertionError, not string
+/usr/local/go/src/runtime/iface.go:261 (0x100c5ae)
+	panicdottypeE: panic(&TypeAssertionError{iface, have, want, ""})
+/Users/admin/mnt/goroot/tt/internal/http/midware/handleException.go:16 (0x17a5998)
+	HandleException.func1.1: jsonErr := json.Unmarshal([]byte(string(err.(string))), &exception)
+/usr/local/go/src/runtime/panic.go:965 (0x10371b8)
+	gopanic: done = runOpenDeferFrame(gp, d)
+/usr/local/go/src/runtime/iface.go:91 (0x100bcab)
+	getitab: panic(&TypeAssertionError{concrete: typ, asserted: &inter.typ, missingMethod: m.init()})
+/usr/local/go/src/runtime/iface.go:461 (0x100cce4)
+	assertI2I: r.tab = getitab(inter, tab._type, false)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/response_writer.go:112 (0x159bac4)
+	(*responseWriter).CloseNotify: return w.ResponseWriter.(http.CloseNotifier).CloseNotify()
+/Users/admin/mnt/goroot/tt/internal/http/response.go:55 (0x15aa753)
+	(*Response).Return: c.Writer.CloseNotify()
+/Users/admin/mnt/goroot/tt/api/app/v1/ttController.go:31 (0x17a55d9)
+	(*TtController).TestMysql: http1.NewResponse().Data(data).Return(g)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x17a5a22)
+	(*Context).Next: c.handlers[c.index](c)
+/Users/admin/mnt/goroot/tt/internal/http/midware/handleException.go:27 (0x17a5a09)
+	HandleException.func1: c.Next()
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x15a4279)
+	(*Context).Next: c.handlers[c.index](c)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/recovery.go:99 (0x15a4260)
+	CustomRecoveryWithWriter.func1: c.Next()
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x15a3353)
+	(*Context).Next: c.handlers[c.index](c)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/logger.go:241 (0x15a3312)
+	LoggerWithConfig.func1: c.Next()
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x159934f)
+	(*Context).Next: c.handlers[c.index](c)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:555 (0x1599335)
+	(*Engine).handleHTTPRequest: c.Next()
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:511 (0x1598dea)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+/usr/local/go/src/net/http/server.go:3296 (0x1333dfe)
+	(*timeoutHandler).ServeHTTP.func1: h.handler.ServeHTTP(tw, r)
+/usr/local/go/src/runtime/asm_amd64.s:1371 (0x106e140)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2022/05/31 17:07:39 [Recovery] 2022/05/31 - 17:07:39 panic recovered:
+GET /app/v1/tt.testMysql HTTP/1.1
+Host: 127.0.0.1:8080
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9
+Cache-Control: max-age=0
+Connection: keep-alive
+Cookie: PHPSESSID=v2usg4qj5oquhbuanqcka2cps5; Hm_lvt_0e36d85fc1d64c7d1c003fef46a37efd=1647487101,1649316720; Hm_lpvt_0e36d85fc1d64c7d1c003fef46a37efd=1649317184
+Sec-Ch-Ua: " Not A;Brand";v="99", "Chromium";v="101", "Google Chrome";v="101"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "macOS"
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: none
+Sec-Fetch-User: ?1
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36
+
+
+interface conversion: interface {} is *runtime.TypeAssertionError, not string
+/usr/local/go/src/runtime/iface.go:261 (0x100c5ae)
+	panicdottypeE: panic(&TypeAssertionError{iface, have, want, ""})
+/Users/admin/mnt/goroot/tt/internal/http/midware/handleException.go:16 (0x17a5998)
+	HandleException.func1.1: jsonErr := json.Unmarshal([]byte(string(err.(string))), &exception)
+/usr/local/go/src/runtime/panic.go:965 (0x10371b8)
+	gopanic: done = runOpenDeferFrame(gp, d)
+/usr/local/go/src/runtime/iface.go:91 (0x100bcab)
+	getitab: panic(&TypeAssertionError{concrete: typ, asserted: &inter.typ, missingMethod: m.init()})
+/usr/local/go/src/runtime/iface.go:461 (0x100cce4)
+	assertI2I: r.tab = getitab(inter, tab._type, false)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/response_writer.go:112 (0x159bac4)
+	(*responseWriter).CloseNotify: return w.ResponseWriter.(http.CloseNotifier).CloseNotify()
+/Users/admin/mnt/goroot/tt/internal/http/response.go:55 (0x15aa753)
+	(*Response).Return: c.Writer.CloseNotify()
+/Users/admin/mnt/goroot/tt/api/app/v1/ttController.go:31 (0x17a55d9)
+	(*TtController).TestMysql: http1.NewResponse().Data(data).Return(g)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x17a5a22)
+	(*Context).Next: c.handlers[c.index](c)
+/Users/admin/mnt/goroot/tt/internal/http/midware/handleException.go:27 (0x17a5a09)
+	HandleException.func1: c.Next()
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x15a4279)
+	(*Context).Next: c.handlers[c.index](c)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/recovery.go:99 (0x15a4260)
+	CustomRecoveryWithWriter.func1: c.Next()
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x15a3353)
+	(*Context).Next: c.handlers[c.index](c)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/logger.go:241 (0x15a3312)
+	LoggerWithConfig.func1: c.Next()
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x159934f)
+	(*Context).Next: c.handlers[c.index](c)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:555 (0x1599335)
+	(*Engine).handleHTTPRequest: c.Next()
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:511 (0x1598dea)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+/usr/local/go/src/net/http/server.go:3296 (0x1333dfe)
+	(*timeoutHandler).ServeHTTP.func1: h.handler.ServeHTTP(tw, r)
+/usr/local/go/src/runtime/asm_amd64.s:1371 (0x106e140)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2022/05/31 17:07:44 [Recovery] 2022/05/31 - 17:07:44 panic recovered:
+GET /app/v1/tt.testMysql HTTP/1.1
+Host: 127.0.0.1:8080
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9
+Cache-Control: max-age=0
+Connection: keep-alive
+Cookie: PHPSESSID=v2usg4qj5oquhbuanqcka2cps5; Hm_lvt_0e36d85fc1d64c7d1c003fef46a37efd=1647487101,1649316720; Hm_lpvt_0e36d85fc1d64c7d1c003fef46a37efd=1649317184
+Sec-Ch-Ua: " Not A;Brand";v="99", "Chromium";v="101", "Google Chrome";v="101"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "macOS"
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: none
+Sec-Fetch-User: ?1
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36
+
+
+interface conversion: interface {} is *runtime.TypeAssertionError, not string
+/usr/local/go/src/runtime/iface.go:261 (0x100c5ae)
+	panicdottypeE: panic(&TypeAssertionError{iface, have, want, ""})
+/Users/admin/mnt/goroot/tt/internal/http/midware/handleException.go:16 (0x17a5998)
+	HandleException.func1.1: jsonErr := json.Unmarshal([]byte(string(err.(string))), &exception)
+/usr/local/go/src/runtime/panic.go:965 (0x10371b8)
+	gopanic: done = runOpenDeferFrame(gp, d)
+/usr/local/go/src/runtime/iface.go:91 (0x100bcab)
+	getitab: panic(&TypeAssertionError{concrete: typ, asserted: &inter.typ, missingMethod: m.init()})
+/usr/local/go/src/runtime/iface.go:461 (0x100cce4)
+	assertI2I: r.tab = getitab(inter, tab._type, false)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/response_writer.go:112 (0x159bac4)
+	(*responseWriter).CloseNotify: return w.ResponseWriter.(http.CloseNotifier).CloseNotify()
+/Users/admin/mnt/goroot/tt/internal/http/response.go:55 (0x15aa753)
+	(*Response).Return: c.Writer.CloseNotify()
+/Users/admin/mnt/goroot/tt/api/app/v1/ttController.go:31 (0x17a55d9)
+	(*TtController).TestMysql: http1.NewResponse().Data(data).Return(g)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x17a5a22)
+	(*Context).Next: c.handlers[c.index](c)
+/Users/admin/mnt/goroot/tt/internal/http/midware/handleException.go:27 (0x17a5a09)
+	HandleException.func1: c.Next()
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x15a4279)
+	(*Context).Next: c.handlers[c.index](c)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/recovery.go:99 (0x15a4260)
+	CustomRecoveryWithWriter.func1: c.Next()
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x15a3353)
+	(*Context).Next: c.handlers[c.index](c)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/logger.go:241 (0x15a3312)
+	LoggerWithConfig.func1: c.Next()
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x159934f)
+	(*Context).Next: c.handlers[c.index](c)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:555 (0x1599335)
+	(*Engine).handleHTTPRequest: c.Next()
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:511 (0x1598dea)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+/usr/local/go/src/net/http/server.go:3296 (0x1333dfe)
+	(*timeoutHandler).ServeHTTP.func1: h.handler.ServeHTTP(tw, r)
+/usr/local/go/src/runtime/asm_amd64.s:1371 (0x106e140)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2022/05/31 17:07:44 [Recovery] 2022/05/31 - 17:07:44 panic recovered:
+GET /app/v1/tt.testMysql HTTP/1.1
+Host: 127.0.0.1:8080
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9
+Cache-Control: max-age=0
+Connection: keep-alive
+Cookie: PHPSESSID=v2usg4qj5oquhbuanqcka2cps5; Hm_lvt_0e36d85fc1d64c7d1c003fef46a37efd=1647487101,1649316720; Hm_lpvt_0e36d85fc1d64c7d1c003fef46a37efd=1649317184
+Sec-Ch-Ua: " Not A;Brand";v="99", "Chromium";v="101", "Google Chrome";v="101"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "macOS"
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: none
+Sec-Fetch-User: ?1
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36
+
+
+interface conversion: interface {} is *runtime.TypeAssertionError, not string
+/usr/local/go/src/runtime/iface.go:261 (0x100c5ae)
+	panicdottypeE: panic(&TypeAssertionError{iface, have, want, ""})
+/Users/admin/mnt/goroot/tt/internal/http/midware/handleException.go:16 (0x17a5998)
+	HandleException.func1.1: jsonErr := json.Unmarshal([]byte(string(err.(string))), &exception)
+/usr/local/go/src/runtime/panic.go:965 (0x10371b8)
+	gopanic: done = runOpenDeferFrame(gp, d)
+/usr/local/go/src/runtime/iface.go:91 (0x100bcab)
+	getitab: panic(&TypeAssertionError{concrete: typ, asserted: &inter.typ, missingMethod: m.init()})
+/usr/local/go/src/runtime/iface.go:461 (0x100cce4)
+	assertI2I: r.tab = getitab(inter, tab._type, false)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/response_writer.go:112 (0x159bac4)
+	(*responseWriter).CloseNotify: return w.ResponseWriter.(http.CloseNotifier).CloseNotify()
+/Users/admin/mnt/goroot/tt/internal/http/response.go:55 (0x15aa753)
+	(*Response).Return: c.Writer.CloseNotify()
+/Users/admin/mnt/goroot/tt/api/app/v1/ttController.go:31 (0x17a55d9)
+	(*TtController).TestMysql: http1.NewResponse().Data(data).Return(g)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x17a5a22)
+	(*Context).Next: c.handlers[c.index](c)
+/Users/admin/mnt/goroot/tt/internal/http/midware/handleException.go:27 (0x17a5a09)
+	HandleException.func1: c.Next()
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x15a4279)
+	(*Context).Next: c.handlers[c.index](c)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/recovery.go:99 (0x15a4260)
+	CustomRecoveryWithWriter.func1: c.Next()
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x15a3353)
+	(*Context).Next: c.handlers[c.index](c)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/logger.go:241 (0x15a3312)
+	LoggerWithConfig.func1: c.Next()
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x159934f)
+	(*Context).Next: c.handlers[c.index](c)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:555 (0x1599335)
+	(*Engine).handleHTTPRequest: c.Next()
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:511 (0x1598dea)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+/usr/local/go/src/net/http/server.go:3296 (0x1333dfe)
+	(*timeoutHandler).ServeHTTP.func1: h.handler.ServeHTTP(tw, r)
+/usr/local/go/src/runtime/asm_amd64.s:1371 (0x106e140)
+	goexit: BYTE	$0x90	// NOP
+[0m
+
+
+[31m2022/05/31 17:07:44 [Recovery] 2022/05/31 - 17:07:44 panic recovered:
+GET /app/v1/tt.testMysql HTTP/1.1
+Host: 127.0.0.1:8080
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9
+Cache-Control: max-age=0
+Connection: keep-alive
+Cookie: PHPSESSID=v2usg4qj5oquhbuanqcka2cps5; Hm_lvt_0e36d85fc1d64c7d1c003fef46a37efd=1647487101,1649316720; Hm_lpvt_0e36d85fc1d64c7d1c003fef46a37efd=1649317184
+Sec-Ch-Ua: " Not A;Brand";v="99", "Chromium";v="101", "Google Chrome";v="101"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "macOS"
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: none
+Sec-Fetch-User: ?1
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36
+
+
+interface conversion: interface {} is *runtime.TypeAssertionError, not string
+/usr/local/go/src/runtime/iface.go:261 (0x100c5ae)
+	panicdottypeE: panic(&TypeAssertionError{iface, have, want, ""})
+/Users/admin/mnt/goroot/tt/internal/http/midware/handleException.go:16 (0x17a5998)
+	HandleException.func1.1: jsonErr := json.Unmarshal([]byte(string(err.(string))), &exception)
+/usr/local/go/src/runtime/panic.go:965 (0x10371b8)
+	gopanic: done = runOpenDeferFrame(gp, d)
+/usr/local/go/src/runtime/iface.go:91 (0x100bcab)
+	getitab: panic(&TypeAssertionError{concrete: typ, asserted: &inter.typ, missingMethod: m.init()})
+/usr/local/go/src/runtime/iface.go:461 (0x100cce4)
+	assertI2I: r.tab = getitab(inter, tab._type, false)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/response_writer.go:112 (0x159bac4)
+	(*responseWriter).CloseNotify: return w.ResponseWriter.(http.CloseNotifier).CloseNotify()
+/Users/admin/mnt/goroot/tt/internal/http/response.go:55 (0x15aa753)
+	(*Response).Return: c.Writer.CloseNotify()
+/Users/admin/mnt/goroot/tt/api/app/v1/ttController.go:31 (0x17a55d9)
+	(*TtController).TestMysql: http1.NewResponse().Data(data).Return(g)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x17a5a22)
+	(*Context).Next: c.handlers[c.index](c)
+/Users/admin/mnt/goroot/tt/internal/http/midware/handleException.go:27 (0x17a5a09)
+	HandleException.func1: c.Next()
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x15a4279)
+	(*Context).Next: c.handlers[c.index](c)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/recovery.go:99 (0x15a4260)
+	CustomRecoveryWithWriter.func1: c.Next()
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x15a3353)
+	(*Context).Next: c.handlers[c.index](c)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/logger.go:241 (0x15a3312)
+	LoggerWithConfig.func1: c.Next()
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x159934f)
+	(*Context).Next: c.handlers[c.index](c)
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:555 (0x1599335)
+	(*Engine).handleHTTPRequest: c.Next()
+/Users/admin/Documents/go_workspace/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:511 (0x1598dea)
+	(*Engine).ServeHTTP: engine.handleHTTPRequest(c)
+/usr/local/go/src/net/http/server.go:3296 (0x1333dfe)
+	(*timeoutHandler).ServeHTTP.func1: h.handler.ServeHTTP(tw, r)
+/usr/local/go/src/runtime/asm_amd64.s:1371 (0x106e140)
+	goexit: BYTE	$0x90	// NOP
+[0m

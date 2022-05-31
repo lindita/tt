@@ -22,8 +22,8 @@ func (c *TtController) Index(g *gin.Context) {
 }
 
 func (c *TtController) TestRedis(g *gin.Context) {
-	str := c.service.Tt.TestRedis(g)
-	http1.NewResponse().Success(str).Return(g)
+	data := c.service.Tt.TestRedis(g)
+	http1.NewResponse().Data(data).Return(g)
 }
 
 func (c *TtController) TestMysql(g *gin.Context) {
@@ -32,6 +32,6 @@ func (c *TtController) TestMysql(g *gin.Context) {
 }
 
 func (c *TtController) TestPanic(g *gin.Context) {
-	str := c.service.Tt.TestPanic(g)
-	http1.NewResponse().Success(str).Return(g)
+	c.service.Tt.TestPanic(g)
+	http1.NewResponse().Success("success").Return(g)
 }
