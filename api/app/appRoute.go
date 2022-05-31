@@ -13,8 +13,9 @@ func InitRoute(r *gin.RouterGroup, c *App) {
 	v1LoginRoute := r.Group("/v1").Use(midware2.AppLogin())
 	v1Route.GET("tt", v1.Tt.Index)
 	v1Route.GET("tt.testPanic", v1.Tt.TestPanic)
-	v1LoginRoute.GET("tt.testRedis", v1.Tt.TestRedis)
-	v1LoginRoute.GET("tt.testMysql", v1.Tt.TestMysql)
+	v1Route.GET("tt.testRedis", v1.Tt.TestRedis)
+	v1Route.GET("tt.testMysql", v1.Tt.TestMysql)
+	v1LoginRoute.GET("tt.testLogin", v1.Tt.TestLogin)
 
 	h5 := c.H5
 	h5Route := r.Group("/h5")

@@ -21,6 +21,11 @@ func (c *TtController) Index(g *gin.Context) {
 	http1.NewResponse().Success(str).Return(g)
 }
 
+func (c *TtController) TestLogin(g *gin.Context) {
+	str := c.service.Tt.GetTt(g)
+	http1.NewResponse().Success(str).Return(g)
+}
+
 func (c *TtController) TestRedis(g *gin.Context) {
 	data := c.service.Tt.TestRedis(g)
 	http1.NewResponse().Data(data).Return(g)
