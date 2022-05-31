@@ -14,7 +14,7 @@ import (
 	"tt.com/tt/api"
 	"tt.com/tt/internal/conf"
 	http1 "tt.com/tt/internal/http"
-	midware2 "tt.com/tt/internal/http/midware"
+	"tt.com/tt/internal/http/midware"
 )
 
 func Run() {
@@ -33,7 +33,7 @@ func Run() {
 		Compress:   true,
 	}
 	r.Use(gin.CustomRecoveryWithWriter(writer, handleRecovery))
-	r.Use(midware2.HandleException())
+	r.Use(midware.HandleException())
 	ttApi, _, _ := NewApi(conf.GetConfig())
 	api.InitRoute(r, ttApi)
 	fmt.Println("http://127.0.0.1" + config.HTTPServerAddr)

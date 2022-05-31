@@ -2,7 +2,7 @@ package app
 
 import (
 	"github.com/gin-gonic/gin"
-	midware2 "tt.com/tt/internal/http/midware"
+	"tt.com/tt/internal/http/midware"
 )
 
 //app路由 可以拆分放到各目录下
@@ -10,7 +10,7 @@ func InitRoute(r *gin.RouterGroup, c *App) {
 
 	v1 := c.V1
 	v1Route := r.Group("/v1")
-	v1LoginRoute := r.Group("/v1").Use(midware2.AppLogin())
+	v1LoginRoute := r.Group("/v1").Use(midware.AppLogin())
 	v1Route.GET("tt", v1.Tt.Index)
 	v1Route.GET("tt.testPanic", v1.Tt.TestPanic)
 	v1Route.GET("tt.testRedis", v1.Tt.TestRedis)
