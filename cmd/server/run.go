@@ -13,6 +13,7 @@ import (
 	"time"
 	"tt.com/tt/api"
 	"tt.com/tt/internal/conf"
+	"tt.com/tt/internal/midware"
 )
 
 func Run() {
@@ -21,8 +22,9 @@ func Run() {
 	r := gin.New()
 	r.Use(gin.Logger())
 	handleRecovery := func(c *gin.Context, err interface{}) {
-		c.JSON(500, gin.H{
-			"message": err.(string),
+		c.JSON(200, gin.H{
+			"errorCode": 1,
+			"msg": "system error: " + err.(string),
 		})
 	}
 	writer := &lumberjack.Logger{
@@ -33,6 +35,7 @@ func Run() {
 		Compress:   true,
 	}
 	r.Use(gin.CustomRecoveryWithWriter(writer, handleRecovery))
+	r.Use(midware.HandleException())
 	ttApi, _, _ := NewApi(conf.GetConfig())
 	api.InitRoute(r, ttApi)
 	fmt.Println("http://127.0.0.1"+config.HTTPServerAddr)

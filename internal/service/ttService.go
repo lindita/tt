@@ -4,6 +4,7 @@ import (
 	"context"
 	"github.com/spf13/cast"
 	"tt.com/tt/internal/data/daos"
+	"tt.com/tt/internal/exception"
 	"tt.com/tt/internal/logger"
 )
 
@@ -30,4 +31,9 @@ func (s *TtService) TestRedis(ctx context.Context) string  {
 func (s *TtService) TestMysql(ctx context.Context) string  {
 	r := s.dao.Tt.GetTtData(ctx)
 	return "tt mysql:" + cast.ToString(r.Id) + cast.ToString(r.Name)
+}
+
+func (s *TtService) TestPanic(ctx context.Context) string  {
+	panic(exception.NewApiException(4001, "error msg"))
+	return "tt test panic"
 }

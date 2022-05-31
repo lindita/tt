@@ -35,3 +35,10 @@ func (c *TtController) TestMysql(g *gin.Context) {
 		"message": str,
 	})
 }
+
+func (c *TtController) TestPanic(g *gin.Context) {
+	str := c.service.Tt.TestPanic(g)
+	g.JSON(200, gin.H{
+		"message": str,
+	})
+}
