@@ -7,6 +7,7 @@ redis:go-redis
 
 ## 结构
 server->controller->service->dao->[mysql,redis..]
+task->service->dao->[mysql,redis..]
 只能从上往下调用
 
 ## 启动server
